@@ -116,20 +116,10 @@
 
 })(jQuery);
 
-
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 const body = document.body;
 
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    const darkModeIcon = document.createElement('i');
-    darkModeIcon.classList.add('material-icons');
-    darkModeIcon.id = 'dark-mode-icon';
-    if (body.classList.contains('dark-mode')) {
-        darkModeIcon.textContent = 'brightness_5'; // Mengubah ikon ke mode gelap
-    } else {
-        darkModeIcon.textContent = 'dark-mode'; // Mengubah ikon ke mode terang
-    }
-    darkModeToggle.innerHTML = ''; // Menghapus isi tombol sebelumnya
-    darkModeToggle.appendChild(darkModeIcon); // Menambahkan ikon ke dalam tombol
+darkModeToggle.addEventListener('change', () => {
+    body.classList.toggle('dark-mode', darkModeToggle.checked);
 });
+
